@@ -2,7 +2,7 @@
 module.exports = function(grunt) {
 	var port = grunt.option('port') || 8000;
 	var base = grunt.option('base') || '.';
-
+	var hostname = grunt.option('hostname') || 'localhost';
 	// Project configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -93,12 +93,14 @@ module.exports = function(grunt) {
 			server: {
 				options: {
 					port: port,
+					hostname: '0.0.0.0',
 					base: base,
 					livereload: true,
 					open: true
 				}
 			}
 		},
+
 
 		zip: {
 			'reveal-js-presentation.zip': [
